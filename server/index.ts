@@ -18,8 +18,6 @@ const roomCollection = firestore.collection("rooms");
 app.post("/signIn", (req, res) => {
   const { name } = req.body;
   const { userId } = req.body;
-  console.log(userId);
-
   usersCollection
     .where("userId", "==", userId)
     .get()

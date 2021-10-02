@@ -32,8 +32,6 @@ const state = {
       cb(newState);
     }
     localStorage.setItem("local-storage", JSON.stringify(newState));
-
-    console.log("state cambio", newState);
   },
 
   /////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,8 +59,6 @@ const state = {
   /////////////////////////////////////////////////////////////////////////////////////////////
 
   signIn(callback?) {
-    console.log("SignIn");
-
     const cs = this.getState();
     if (cs.userId == "") {
       fetch(API_BASE_URL + "/signIn", {
@@ -81,8 +77,6 @@ const state = {
           callback();
         });
     } else {
-      console.log("Ya tenes id");
-
       callback();
     }
   },
@@ -90,8 +84,6 @@ const state = {
   /////////////////////////////////////////////////////////////////////////////////////////////
 
   createRoom(callback?) {
-    console.log("CreateRoom");
-
     const cs = this.getState();
     fetch(API_BASE_URL + "/rooms", {
       method: "post",
@@ -104,8 +96,6 @@ const state = {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-
         cs.shortId = data.shortId;
         cs.rtdbId = data.rtdbId;
         cs.jugador = data.jugador;
@@ -118,8 +108,6 @@ const state = {
   /////////////////////////////////////////////////////////////////////////////////////////////
 
   getRTDBID(shortId: string, callback?) {
-    console.log("getRTDBID");
-
     const cs = this.getState();
     fetch(API_BASE_URL + "/rooms/" + shortId + `?userId=${cs.userId}`)
       .then((res) => {
@@ -136,8 +124,6 @@ const state = {
   /////////////////////////////////////////////////////////////////////////////////////////////
 
   connectoToRoom(callback?) {
-    console.log("connectToRoom");
-
     const cs = this.getState();
     fetch(API_BASE_URL + `/rooms/${cs.rtdbId}`, {
       method: "post",
