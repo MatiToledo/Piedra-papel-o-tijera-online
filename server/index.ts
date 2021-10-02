@@ -1,6 +1,7 @@
 import * as express from "express";
 import { firestore, rtdb } from "./adminbase";
 import * as cors from "cors";
+import * as path from "path";
 import { nanoid } from "nanoid";
 
 const app = express();
@@ -256,7 +257,7 @@ app.post("/pushWinner", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(__dirname, +"/../dist/index.html");
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 app.listen(port, () => {
