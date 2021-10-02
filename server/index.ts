@@ -14,10 +14,6 @@ app.use(express.static("dist"));
 const usersCollection = firestore.collection("users");
 const roomCollection = firestore.collection("rooms");
 
-app.get("*", (req, res) => {
-  res.sendFile(__dirname, +"../dist/index.html");
-});
-
 app.post("/signIn", (req, res) => {
   const { name } = req.body;
   const { userId } = req.body;
@@ -257,6 +253,10 @@ app.post("/pushWinner", (req, res) => {
         });
       });
   }
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(__dirname, +"../dist/index.html");
 });
 
 app.listen(port, () => {
