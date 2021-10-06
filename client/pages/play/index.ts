@@ -3,7 +3,7 @@ import { state } from "../../state";
 
 export class Play extends HTMLElement {
   connectedCallback() {
-    const cs = state.getState();
+    state.setMyPLay("");
     this.render();
     setTimeout(() => {
       Router.go("/result");

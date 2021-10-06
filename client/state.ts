@@ -301,12 +301,10 @@ const state = {
         jugador: cs.jugador,
       }),
     });
-    this.setState({
-      ...cs,
-      choice: "",
-      rivalChoice: "",
-      resultado: "",
-    });
+    cs.choice = "";
+    cs.rivalChoice = "";
+    cs.resultado = "";
+    this.setState(cs);
   },
 };
 
