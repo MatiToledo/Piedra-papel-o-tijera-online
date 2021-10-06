@@ -254,6 +254,18 @@ app.post("/pushWinner", (req, res) => {
   }
 });
 
+app.post("/deleteChoices", (req, res) => {
+  const { rtdbId } = req.body;
+  const { jugador } = req.body;
+  const roomRef = rtdb.ref("/rooms/" + rtdbId + "/" + jugador);
+  roomRef.update({
+    choice: "",
+  });
+  res.json({
+    message: "choices deleted",
+  });
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });

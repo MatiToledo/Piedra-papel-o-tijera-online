@@ -3,6 +3,11 @@ import { state } from "../../state";
 
 export class Play extends HTMLElement {
   connectedCallback() {
+    const cs = state.getState();
+    state.setState({
+      ...cs,
+      choice: "",
+    });
     this.render();
     setTimeout(() => {
       Router.go("/result");
@@ -11,8 +16,6 @@ export class Play extends HTMLElement {
   }
 
   render() {
-    const cs = state.getState();
-
     this.innerHTML = `
     <div class="play__container">
       <div class="play__temporizador">

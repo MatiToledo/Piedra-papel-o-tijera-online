@@ -7,6 +7,7 @@ export class Score extends HTMLElement {
     state.pushWinner();
     const button = document.querySelector(".quit-ready");
     button.addEventListener("click", () => {
+      state.deleteChoices();
       Router.go("/waiting");
     });
   }

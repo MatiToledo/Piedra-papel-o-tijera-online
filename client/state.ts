@@ -286,6 +286,28 @@ const state = {
       }),
     });
   },
+
+  /////////////////////////////////////////////////////////////////////////////////////////////
+
+  deleteChoices() {
+    const cs = this.getState();
+    fetch(API_BASE_URL + "/deleteChoices", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        rtdbId: cs.rtdbId,
+        jugador: cs.jugador,
+      }),
+    });
+    this.setState({
+      ...cs,
+      choice: "",
+      rivalChoice: "",
+      resultado: "",
+    });
+  },
 };
 
 export { state };
