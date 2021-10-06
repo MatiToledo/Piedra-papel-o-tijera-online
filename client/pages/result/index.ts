@@ -5,7 +5,6 @@ export class Result extends HTMLElement {
   connectedCallback() {
     this.render();
     state.setWinner();
-    // state.pushWinner();
     state.quitReady();
     setTimeout(() => {
       Router.go("/score");

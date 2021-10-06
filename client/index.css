@@ -93,18 +93,23 @@ body {
 }
 
 .result__container {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
   height: 100vh;
 }
 
 .my-choice {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: 0 auto;
   width: 137px;
   height: 315px;
 }
 .rival-choice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   margin: 0 auto;
   width: 137px;
   height: 315px;
