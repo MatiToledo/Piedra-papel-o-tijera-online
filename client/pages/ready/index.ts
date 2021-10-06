@@ -3,6 +3,13 @@ import { state } from "../../state";
 
 export class Ready extends HTMLElement {
   connectedCallback() {
+    const cs = state.getState();
+    state.setState({
+      ...cs,
+      choice: "",
+      rivalChoice: "",
+      resultado: "",
+    });
     state.getRoomInfo(() => {
       this.render();
     });
